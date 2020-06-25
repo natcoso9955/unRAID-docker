@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Grafana Loki</Name>
+  <Repository>grafana/loki</Repository>
+  <Registry>https://hub.docker.com/r/grafana/loki/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/94021-support-natcoso9955-loki/</Support>
+  <Project>https://grafana.com/oss/loki/</Project>
+  <Overview>Loki: like Prometheus, but for logs.&#xD;
+Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. It is designed to be very cost effective and easy to operate. It does not index the contents of the logs, but rather a set of labels for each log stream.</Overview>
+  <Category>Tools: Network:Management</Category>
+  <WebUI>http://[IP]:[PORT:3100]/metrics</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/loki.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1593043406</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Loki: like Prometheus, but for logs.&#xD;
+Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus. It is designed to be very cost effective and easy to operate. It does not index the contents of the logs, but rather a set of labels for each log stream.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3100</HostPort>
+        <ContainerPort>3100</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/loki</HostDir>
+      <ContainerDir>/loki</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="Web Port" Target="3100" Default="" Mode="tcp" Description="Container Port: 3100" Type="Port" Display="always" Required="false" Mask="false">3100</Config>
+  <Config Name="Host Path 1" Target="/loki" Default="" Mode="rw" Description="Container Path: /loki" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/loki</Config>
+</Container>
