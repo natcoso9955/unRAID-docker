@@ -17,10 +17,3 @@ scrape_configs:
       job: varlogs
       __path__: /var/log/*log
 
-#- job_name: csmm
-#  static_configs:
-#  - targets:
-#      - localhost
-#    labels:
-#      job: csmmlogs
-#      __path__: /csmmlogs/*log
