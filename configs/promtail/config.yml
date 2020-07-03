@@ -1,0 +1,26 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /positions/positions.yaml
+
+clients:
+  - url: http://[IP]:3100/loki/api/v1/push
+
+scrape_configs:
+- job_name: system
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: varlogs
+      __path__: /var/log/*log
+
+#- job_name: csmm
+#  static_configs:
+#  - targets:
+#      - localhost
+#    labels:
+#      job: csmmlogs
+#      __path__: /csmmlogs/*log
