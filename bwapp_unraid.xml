@@ -8,7 +8,7 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://hub.docker.com/r/raesene/bwapp/</Support>
-  <Project/>
+  <Project>https://sourceforge.net/projects/bwapp/</Project>
   <Overview>bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.&#xD;
 It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.&#xD;
 bWAPP prepares one to conduct successful penetration testing and ethical hacking projects.&#xD;
@@ -24,7 +24,7 @@ NOTE:: Make sure to go to /install.php to set up your instance.</Overview>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1621919230</DateInstalled>
+  <DateInstalled>1621924023</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.&#xD;
