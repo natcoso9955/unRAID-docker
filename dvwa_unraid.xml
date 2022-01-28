@@ -18,7 +18,7 @@ Will need to be placed into your config path.&#xD;
 &#xD;
 You will also need to place https://github.com/natcoso9955/unRAID-docker/blob/master/configs/DVWA/php.ini in the root of your appdata path.</Overview>
   <Category>Other: Status:Beta</Category>
-  <WebUI>http://[IP]:[PORT:8088]/</WebUI>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL/>
   <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/dvwa-logo-2.png</Icon>
   <ExtraParams/>
