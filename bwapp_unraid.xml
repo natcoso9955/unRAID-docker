@@ -18,7 +18,7 @@ It covers all major known web bugs, including all risks from the OWASP Top 10 pr
 &#xD;
 NOTE:: Make sure to go to /install.php to set up your instance.</Overview>
   <Category>Tools: Other:</Category>
-  <WebUI>http://[IP]:[PORT:8101]/</WebUI>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL/>
   <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/bee_1.png</Icon>
   <ExtraParams/>
