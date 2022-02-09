@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>RCON-WebAdmin</Name>
+  <Repository>itzg/rcon</Repository>
+  <Registry>https://hub.docker.com/r/itzg/rcon/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/itzg/rcon/</Support>
+  <Project>https://github.com/rcon-web-admin/rcon-web-admin</Project>
+  <Overview>Out of the box, RCON Web Admin can check users for high ping, VAC status, or filter the chat for you around the clock.&#xD;
+&#xD;
+This image lets you run the rcon-web-admin administration tool as a Docker container. A great benefit of running rcon-web-admin in Docker, especially in a Docker Composition is that the RCON port of your game server can remain securely isolated within the Docker network.&#xD;
+&#xD;
+Additional Variables available at: https://github.com/rcon-web-admin/rcon-web-admin#environment-variables&#xD;
+&#xD;
+</Overview>
+  <Category>GameServers: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:4326]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/rcon-webadmin.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1644367679</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Out of the box, RCON Web Admin can check users for high ping, VAC status, or filter the chat for you around the clock.&#xD;
+&#xD;
+This image lets you run the rcon-web-admin administration tool as a Docker container. A great benefit of running rcon-web-admin in Docker, especially in a Docker Composition is that the RCON port of your game server can remain securely isolated within the Docker network.&#xD;
+&#xD;
+Additional Variables available at: https://github.com/rcon-web-admin/rcon-web-admin#environment-variables&#xD;
+&#xD;
+</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>4326</HostPort>
+        <ContainerPort>4326</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>4327</HostPort>
+        <ContainerPort>4327</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/rcon-web-admin/db/</HostDir>
+      <ContainerDir>/opt/rcon-web-admin/db</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>TRUE</Value>
+      <Name>RWA_ADMIN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>admin</Value>
+      <Name>RWA_USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>admin</Value>
+      <Name>RWA_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>False</Value>
+      <Name>RWA_ENV</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="webUI" Target="4326" Default="" Mode="tcp" Description="Container Port: 4326" Type="Port" Display="always" Required="false" Mask="false">4326</Config>
+  <Config Name="websocket access from UI" Target="4327" Default="" Mode="tcp" Description="Container Port: 4327" Type="Port" Display="always" Required="false" Mask="false">4327</Config>
+  <Config Name="db" Target="/opt/rcon-web-admin/db" Default="" Mode="rw" Description="Container Path: /opt/rcon-web-admin/db" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/rcon-web-admin/db/</Config>
+  <Config Name="RWA_ADMIN" Target="RWA_ADMIN" Default="" Mode="" Description="Container Variable: RWA_ADMIN" Type="Variable" Display="always" Required="false" Mask="false">TRUE</Config>
+  <Config Name="RWA_USERNAME" Target="RWA_USERNAME" Default="" Mode="" Description="Container Variable: RWA_USERNAME" Type="Variable" Display="always" Required="false" Mask="false">admin</Config>
+  <Config Name="RWA_PASSWORD" Target="RWA_PASSWORD" Default="" Mode="" Description="Container Variable: RWA_PASSWORD" Type="Variable" Display="always" Required="false" Mask="true">admin</Config>
+  <Config Name="RWA_ENV" Target="RWA_ENV" Default="" Mode="" Description="Container Variable: RWA_ENV" Type="Variable" Display="advanced" Required="false" Mask="false">False</Config>
+</Container>
