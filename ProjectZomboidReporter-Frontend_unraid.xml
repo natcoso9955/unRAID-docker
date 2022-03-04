@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ProjectZomboidReporter-Frontend</Name>
+  <Repository>chrisashtear/zomboid-reporter-frontend</Repository>
+  <Registry>https://hub.docker.com/r/chrisashtear/zomboid-reporter-frontend/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Support>
+  <Project>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Project>
+  <Overview>This is the frontend template used in the Project Zomboid Reporter. All visuals used in the final Reporter are pulled from here.</Overview>
+  <Category>GameServers:</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/projectzomboid-template.png</Icon>
+  <ExtraParams>--restart=always</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1646354591</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This is the frontend template used in the Project Zomboid Reporter. All visuals used in the final Reporter are pulled from here.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3000</HostPort>
+        <ContainerPort>3000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data/>
+  <Environment/>
+  <Labels/>
+  <Config Name="frontend port" Target="3000" Default="3000" Mode="tcp" Description="Container Port: 3000" Type="Port" Display="advanced-hide" Required="true" Mask="false">3000</Config>
+</Container>
