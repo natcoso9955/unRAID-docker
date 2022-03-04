@@ -30,8 +30,8 @@ upstream api {&#xD;
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1646373479</DateInstalled>
-  <Requires>ProjectZomboidReporter-API</Requires>
-  <Requires>ProjectZomboidReporter-Frontend</Requires>
+  <Requires>ProjectZomboidReporter-API
+  ProjectZomboidReporter-Frontend</Requires>
   <DonateText/>
   <DonateLink/>
   <Description>This is an nginx server with a custom conf applied. It will grab combined API calls to the api endpoint, and also components from the frontend template.&#xD;
