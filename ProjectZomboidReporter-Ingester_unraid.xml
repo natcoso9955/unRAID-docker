@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ProjectZomboidReporter-Ingester</Name>
+  <Repository>chrisashtear/zomboid-reporter</Repository>
+  <Registry>https://hub.docker.com/r/chrisashtear/zomboid-reporter/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Support>
+  <Project>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Project>
+  <Overview>This is the ingester which grabs statiscs from your Project Zomboid server files and uploads them to the SQL database for the API to access.&#xD;
+&#xD;
+NOTE: if you havnt had a player connect to your server yet, you will get an error.&#xD;
+&#xD;
+If you are having issues with the database tables not being autocreated, connect to the database with adminer (or another program of your choice) and create the tables and structure with the following:&#xD;
+&#xD;
+USE `Zombo`;&#xD;
+&#xD;
+SET NAMES utf8mb4;&#xD;
+&#xD;
+CREATE TABLE `Game` (&#xD;
+  `id` int NOT NULL AUTO_INCREMENT,&#xD;
+  `dayofmonth` int NOT NULL,&#xD;
+  `month` int NOT NULL,&#xD;
+  `daysSinceStart` int NOT NULL,&#xD;
+  `name` text NOT NULL,&#xD;
+  `maxPlayers` int NOT NULL,&#xD;
+  `startDay` int NOT NULL,&#xD;
+  `startMonth` int NOT NULL,&#xD;
+  `startYear` int NOT NULL,&#xD;
+  `year` int NOT NULL,&#xD;
+  PRIMARY KEY (`id`)&#xD;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;&#xD;
+&#xD;
+&#xD;
+CREATE TABLE `Players` (&#xD;
+  `id` int NOT NULL AUTO_INCREMENT,&#xD;
+  `username` text NOT NULL,&#xD;
+  `charname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,&#xD;
+  `x` float NOT NULL,&#xD;
+  `y` float NOT NULL,&#xD;
+  `data` blob NOT NULL,&#xD;
+  `lastOnline` text NOT NULL,&#xD;
+  PRIMARY KEY (`id`)&#xD;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams>--restart=always</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1646371221</DateInstalled>
+  <Requires>Project Zomboid</Requires>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This is the ingester which grabs statiscs from your Project Zomboid server files and uploads them to the SQL database for the API to access.&#xD;
+&#xD;
+NOTE: if you havnt had a player connect to your server yet, you will get an error.&#xD;
+&#xD;
+If you are having issues with the database tables not being autocreated, connect to the database with adminer (or another program of your choice) and create the tables and structure with the following:&#xD;
+&#xD;
+USE `Zombo`;&#xD;
+&#xD;
+SET NAMES utf8mb4;&#xD;
+&#xD;
+CREATE TABLE `Game` (&#xD;
+  `id` int NOT NULL AUTO_INCREMENT,&#xD;
+  `dayofmonth` int NOT NULL,&#xD;
+  `month` int NOT NULL,&#xD;
+  `daysSinceStart` int NOT NULL,&#xD;
+  `name` text NOT NULL,&#xD;
+  `maxPlayers` int NOT NULL,&#xD;
+  `startDay` int NOT NULL,&#xD;
+  `startMonth` int NOT NULL,&#xD;
+  `startYear` int NOT NULL,&#xD;
+  `year` int NOT NULL,&#xD;
+  PRIMARY KEY (`id`)&#xD;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;&#xD;
+&#xD;
+&#xD;
+CREATE TABLE `Players` (&#xD;
+  `id` int NOT NULL AUTO_INCREMENT,&#xD;
+  `username` text NOT NULL,&#xD;
+  `charname` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,&#xD;
+  `x` float NOT NULL,&#xD;
+  `y` float NOT NULL,&#xD;
+  `data` blob NOT NULL,&#xD;
+  `lastOnline` text NOT NULL,&#xD;
+  PRIMARY KEY (`id`)&#xD;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/gaming_appdata/ProjectZomboid/Zomboid/</HostDir>
+      <ContainerDir>/var/www/html/sv</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>Iopy_Server</Value>
+      <Name>ZOMBOID_SERVER_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>192.168.1.129:3307</Value>
+      <Name>SQL_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>Zombo</Value>
+      <Name> SQL_DATABASE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>SQL_USER</Value>
+      <Name>SQL_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>SQL_PASS</Value>
+      <Name>SQL_PASS</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="ZOMBOID_SERVER_NAME" Target="ZOMBOID_SERVER_NAME" Default="servertest" Mode="" Description="Container Variable: ZOMBOID_SERVER_NAME" Type="Variable" Display="always" Required="true" Mask="false">Iopy_Server</Config>
+  <Config Name="Project Zomboid Server Files" Target="/var/www/html/sv" Default="/mnt/user/appdata/ProjectZomboid/Zomboid/" Mode="ro" Description="Container Path: /var/www/html/sv" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/ProjectZomboid/Zomboid/</Config>
+  <Config Name="SQL_HOST" Target="SQL_HOST" Default="serverip:port" Mode="" Description="Container Variable: SQL_HOST" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name=" SQL_DATABASE" Target=" SQL_DATABASE" Default="Zombo" Mode="" Description="Container Variable:  SQL_DATABASE" Type="Variable" Display="always" Required="true" Mask="false">Zombo</Config>
+  <Config Name="SQL_USER" Target="SQL_USER" Default="" Mode="" Description="Container Variable: SQL_USER" Type="Variable" Display="always" Required="true" Mask="false">SQL_USER</Config>
+  <Config Name="SQL_PASS" Target="SQL_PASS" Default="" Mode="" Description="Container Variable: SQL_PASSWORD" Type="Variable" Display="always" Required="true" Mask="false">SQL_PASS</Config>
+</Container>
