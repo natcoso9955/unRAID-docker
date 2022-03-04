@@ -47,7 +47,7 @@ CREATE TABLE `Players` (&#xD;
   <Category>GameServers:</Category>
   <WebUI/>
   <TemplateURL/>
-  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/projectzomboid-ingest.png</Icon>
   <ExtraParams>--restart=always</ExtraParams>
   <PostArgs/>
   <CPUset/>
