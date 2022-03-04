@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ProjectZomboidReporter-API</Name>
+  <Repository>chrisashtear/zomboid-reporter-backend</Repository>
+  <Registry>https://hub.docker.com/r/chrisashtear/zomboid-reporter-backend/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Support>
+  <Project>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Project>
+  <Overview>This api is used to access your project zomboid data stored in sql to pass to the main reporter.&#xD;
+&#xD;
+NOTE: if your sql database is not running on the default port, you will need to provide a value for it below&#xD;
+You will also need to complete the index.js override path below.&#xD;
+The current image doesnt allow for a custom sql port, tweaked file available below.&#xD;
+&#xD;
+Fixed index.js: https://raw.githubusercontent.com/natcoso9955/Zomboid-Server-Stats-Reporter/main/backend/index.js</Overview>
+  <Category>GameServers:</Category>
+  <WebUI>http://[IP]:[PORT:3001]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/projectzomboid-api.png</Icon>
+  <ExtraParams>--restart=always</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1646371605</DateInstalled>
+  <Requires>MySQL</Requires>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This api is used to access your project zomboid data stored in sql to pass to the main reporter.&#xD;
+&#xD;
+NOTE: if your sql database is not running on the default port, you will need to provide a value for it below&#xD;
+You will also need to complete the index.js override path below.&#xD;
+The current image doesnt allow for a custom sql port, tweaked file available below.&#xD;
+&#xD;
+Fixed index.js: https://raw.githubusercontent.com/natcoso9955/Zomboid-Server-Stats-Reporter/main/backend/index.js</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3001</HostPort>
+        <ContainerPort>3001</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/zb-reporter-backend/index.js</HostDir>
+      <ContainerDir>/usr/src/app/index.js</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>192.168.1.129</Value>
+      <Name>SQL_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>Zombo</Value>
+      <Name>SQL_DATABASE</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>SQL_USER</Value>
+      <Name>SQL_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>SQL_PASS</Value>
+      <Name>SQL_PASS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3307</Value>
+      <Name>SQL_PORT</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="SQL_HOST" Target="SQL_HOST" Default="" Mode="" Description="Container Variable: SQL_HOST" Type="Variable" Display="always" Required="true" Mask="false">192.168.1.129</Config>
+  <Config Name="SQL_DATABASE" Target="SQL_DATABASE" Default="" Mode="" Description="Container Variable: SQL_DATABASE" Type="Variable" Display="always" Required="true" Mask="false">Zombo</Config>
+  <Config Name="SQL_USER" Target="SQL_USER" Default="" Mode="" Description="Container Variable: SQL_USER" Type="Variable" Display="always" Required="true" Mask="false">SQL_USER</Config>
+  <Config Name="SQL_PASS" Target="SQL_PASS" Default="" Mode="" Description="Container Variable: SQL_PASSWORD" Type="Variable" Display="always" Required="true" Mask="true">SQL_PASS</Config>
+  <Config Name="SQL_PORT" Target="SQL_PORT" Default="" Mode="" Description="Container Variable: SQL_PORT" Type="Variable" Display="always" Required="false" Mask="false">3307</Config>
+  <Config Name="index.js_fix" Target="/usr/src/app/index.js" Default="/mnt/user/appdata/ProjectZomboidReporter/index.js" Mode="ro" Description="Container Path: /usr/src/app/index.js" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/zb-reporter-backend/index.js</Config>
+  <Config Name="API port" Target="3001" Default="3001" Mode="tcp" Description="Container Port: 3001" Type="Port" Display="always" Required="true" Mask="false">3001</Config>
+</Container>
