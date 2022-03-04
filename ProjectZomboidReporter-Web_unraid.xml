@@ -25,7 +25,7 @@ upstream api {&#xD;
   <Category>GameServers:</Category>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL/>
-  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <Icon>https://github.com/natcoso9955/unRAID-docker/raw/master/icons/projectzomboid-web.png</Icon>
   <ExtraParams>--restart=always</ExtraParams>
   <PostArgs/>
   <CPUset/>
