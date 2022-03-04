@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ProjectZomboidReporter-Web</Name>
+  <Repository>chrisashtear/zomboid-reporter-nginx</Repository>
+  <Registry>https://hub.docker.com/r/chrisashtear/zomboid-reporter-nginx/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>true</Privileged>
+  <Support>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Support>
+  <Project>https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/</Project>
+  <Overview>This is an nginx server with a custom conf applied. It will grab combined API calls to the api endpoint, and also components from the frontend template.&#xD;
+&#xD;
+You will need to download the conf file from the below and modify the below lines to match your server ip, then place in the appdata folder.&#xD;
+&#xD;
+https://raw.githubusercontent.com/natcoso9955/Zomboid-Server-Stats-Reporter/main/nginx/default.conf&#xD;
+&#xD;
+upstream client {&#xD;
+  server YOURSERVERIPHERE:3000;&#xD;
+}&#xD;
+&#xD;
+upstream api {&#xD;
+  server YOURSERVERIPHERE:3001;&#xD;
+}</Overview>
+  <Category>GameServers:</Category>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <TemplateURL/>
+  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <ExtraParams>--restart=always</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1646373479</DateInstalled>
+  <Requires>ProjectZomboidReporter-API</Requires>
+  <Requires>ProjectZomboidReporter-Frontend</Requires>
+  <DonateText/>
+  <DonateLink/>
+  <Description>This is an nginx server with a custom conf applied. It will grab combined API calls to the api endpoint, and also components from the frontend template.&#xD;
+&#xD;
+You will need to download the conf file from the below and modify the below lines to match your server ip, then place in the appdata folder.&#xD;
+&#xD;
+https://raw.githubusercontent.com/natcoso9955/Zomboid-Server-Stats-Reporter/main/nginx/default.conf&#xD;
+&#xD;
+upstream client {&#xD;
+  server YOURSERVERIPHERE:3000;&#xD;
+}&#xD;
+&#xD;
+upstream api {&#xD;
+  server YOURSERVERIPHERE:3001;&#xD;
+}</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3050</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/NginxPZreporter</HostDir>
+      <ContainerDir>/etc/nginx/conf.d</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="webUI" Target="80" Default="3050" Mode="tcp" Description="Container Port: 3050" Type="Port" Display="always" Required="true" Mask="false">3050</Config>
+  <Config Name="conf" Target="/etc/nginx/conf.d" Default="/mnt/user/appdata/ProjectZomboidReporter-nginx" Mode="ro" Description="Container Path: /etc/nginx/conf.d" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ProjectZomboidReporter-nginx</Config>
+</Container>
