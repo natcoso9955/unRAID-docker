@@ -103,12 +103,12 @@ CREATE TABLE `Players` (&#xD;
   </Data>
   <Environment>
     <Variable>
-      <Value>Iopy_Server</Value>
+      <Value>Game_Server</Value>
       <Name>ZOMBOID_SERVER_NAME</Name>
       <Mode/>
     </Variable>
     <Variable>
-      <Value>192.168.1.129:3307</Value>
+      <Value>localhost:3307</Value>
       <Name>SQL_HOST</Name>
       <Mode/>
     </Variable>
@@ -129,7 +129,7 @@ CREATE TABLE `Players` (&#xD;
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="ZOMBOID_SERVER_NAME" Target="ZOMBOID_SERVER_NAME" Default="servertest" Mode="" Description="Container Variable: ZOMBOID_SERVER_NAME" Type="Variable" Display="always" Required="true" Mask="false">Iopy_Server</Config>
+  <Config Name="ZOMBOID_SERVER_NAME" Target="ZOMBOID_SERVER_NAME" Default="servertest" Mode="" Description="Container Variable: ZOMBOID_SERVER_NAME" Type="Variable" Display="always" Required="true" Mask="false">Game_Server</Config>
   <Config Name="Project Zomboid Server Files" Target="/var/www/html/sv" Default="/mnt/user/appdata/ProjectZomboid/Zomboid/" Mode="ro" Description="Container Path: /var/www/html/sv" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/ProjectZomboid/Zomboid/</Config>
   <Config Name="SQL_HOST" Target="SQL_HOST" Default="serverip:port" Mode="" Description="Container Variable: SQL_HOST" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name=" SQL_DATABASE" Target=" SQL_DATABASE" Default="Zombo" Mode="" Description="Container Variable:  SQL_DATABASE" Type="Variable" Display="always" Required="true" Mask="false">Zombo</Config>
