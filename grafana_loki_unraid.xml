@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>GrafanaLoki</Name>
-  <Repository>grafana/loki</Repository>
+  <Repository>grafana/loki:master</Repository>
   <Registry>https://hub.docker.com/r/grafana/loki/</Registry>
   <Network>bridge</Network>
   <MyIP/>
