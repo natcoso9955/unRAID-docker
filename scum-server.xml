@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Container version="2">
+  <Name>SCUM Dedicated Server</Name>
+  <Icon>https://raw.githubusercontent.com/natcoso9955/unRAID-docker/main/icons/SCUM-Dedicated-Server-Emblem.png</Icon>
+  <Repository>natcoso9955/scum-unraid:v0.1.0-rc1</Repository>
+  <Registry>https://hub.docker.com/r/natcoso9955/scum-unraid</Registry>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/natcoso9955/scum-unraid-server/issues</Support>
+  <Project>https://github.com/natcoso9955/scum-unraid-server</Project>
+  <Overview>Community-maintained SCUM dedicated server on Wine with SteamCMD updates, a web dashboard, and unified web/SFTP user management. SCUM game files download on first launch and are not included in the image.</Overview>
+  <Description>Windows SCUM dedicated server hosted under Wine. Includes dashboard controls, uptime, logs and SFTP accounts using the same credentials as panel users. The master administrator token and initial legacy SFTP password are configured through environment variables. Data is stored under /data. Forward game ports only; put the HTTP dashboard behind your own HTTPS reverse proxy or VPN.</Description>
+  <Requires>Unraid 7 on x86-64, 16 GB or more available RAM, enough disk space for SCUM/SteamCMD and persistent saves. Linux host vm.max_map_count of at least 1048576 recommended. Verify graceful Docker stop timeout for SCUM.</Requires>
+  <ExtraParams>--stop-timeout=150</ExtraParams>
+  <Category>GameServers:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/natcoso9955/unRAID-docker/main/templates/scum-server.xml</TemplateURL>
+  <Config Name="Game Data" Target="/data" Default="/mnt/user/appdata/scum-server" Mode="rw" Description="Persistent installation, world saves, auth, and logs" Type="Path" Display="always" Required="true" Mask="false" />
+  <Config Name="Game UDP 7777" Target="7777" Default="7777" Mode="udp" Description="SCUM game UDP" Type="Port" Display="always" Required="true" Mask="false" />
+  <Config Name="Game UDP 7778" Target="7778" Default="7778" Mode="udp" Description="SCUM game UDP" Type="Port" Display="always" Required="true" Mask="false" />
+  <Config Name="Game UDP 7779" Target="7779" Default="7779" Mode="udp" Description="Optional UDP port" Type="Port" Display="advanced" Required="false" Mask="false" />
+  <Config Name="Direct Connection TCP 7779" Target="7779" Default="7779" Mode="tcp" Description="SCUM direct connect TCP" Type="Port" Display="always" Required="true" Mask="false" />
+  <Config Name="SFTP TCP 2222" Target="2222" Default="2222" Mode="tcp" Description="SFTP external client" Type="Port" Display="always" Required="true" Mask="false" />
+  <Config Name="Web Dashboard TCP 8080" Target="8080" Default="8383" Mode="tcp" Description="Dashboard HTTP: LAN/reverse proxy only" Type="Port" Display="always" Required="true" Mask="false" />
+  <Config Name="SFTP_PASSWORD" Target="SFTP_PASSWORD" Default="" Mode="" Description="Required legacy scum SFTP account password" Type="Variable" Display="always" Required="true" Mask="true" />
+  <Config Name="MANAGER_TOKEN" Target="MANAGER_TOKEN" Default="" Mode="" Description="Required master admin token; use a long random value" Type="Variable" Display="always" Required="true" Mask="true" />
+  <Config Name="UPDATE_ON_START" Target="UPDATE_ON_START" Default="true" Mode="" Description="Check for SteamCMD updates at startup" Type="Variable" Display="advanced" Required="false" Mask="false" />
+  <Config Name="STEAMCMD_VALIDATE" Target="STEAMCMD_VALIDATE" Default="false" Mode="" Description="Full SteamCMD file validation" Type="Variable" Display="advanced" Required="false" Mask="false" />
+  <Config Name="MAX_PLAYERS" Target="MAX_PLAYERS" Default="10" Mode="" Description="SCUM maximum players" Type="Variable" Display="always" Required="false" Mask="false" />
+  <Config Name="WEB_COOKIE_SECURE" Target="WEB_COOKIE_SECURE" Default="false" Mode="" Description="Set true when dashboard is accessed exclusively over HTTPS behind a reverse proxy; false for initial LAN HTTP testing" Type="Variable" Display="advanced" Required="false" Mask="false" />
+  <Config Name="TZ" Target="TZ" Default="Australia/Adelaide" Mode="" Description="Container timezone" Type="Variable" Display="advanced" Required="false" Mask="false" />
+  <Config Name="SHUTDOWN_TIMEOUT" Target="SHUTDOWN_TIMEOUT" Default="120" Mode="" Description="Graceful SCUM shutdown wait (seconds)" Type="Variable" Display="advanced" Required="false" Mask="false" />
+  <Beta>true</Beta>
+</Container>
