@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Container version="2">
   <Name>SCUM Dedicated Server</Name>
-  <Icon>https://raw.githubusercontent.com/natcoso9955/unRAID-docker/main/icons/SCUM-Dedicated-Server-Emblem.png</Icon>
+  <Icon>https://raw.githubusercontent.com/natcoso9955/unRAID-docker/master/icons/SCUM-Dedicated-Server-Emblem.png</Icon>
   <Repository>natcoso9955/scum-unraid:v0.1.0-rc1</Repository>
   <Registry>https://hub.docker.com/r/natcoso9955/scum-unraid</Registry>
   <Network>bridge</Network>
@@ -15,7 +15,7 @@
   <ExtraParams>--stop-timeout=150</ExtraParams>
   <Category>GameServers:</Category>
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/natcoso9955/unRAID-docker/main/templates/scum-server.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/natcoso9955/unRAID-docker/master/scum-server.xml</TemplateURL>
   <Config Name="Game Data" Target="/data" Default="/mnt/user/appdata/scum-server" Mode="rw" Description="Persistent installation, world saves, auth, and logs" Type="Path" Display="always" Required="true" Mask="false" />
   <Config Name="Game UDP 7777" Target="7777" Default="7777" Mode="udp" Description="SCUM game UDP" Type="Port" Display="always" Required="true" Mask="false" />
   <Config Name="Game UDP 7778" Target="7778" Default="7778" Mode="udp" Description="SCUM game UDP" Type="Port" Display="always" Required="true" Mask="false" />
